@@ -1,9 +1,10 @@
 package game.model;
 
 import game.api.Move;
+import game.api.VisibleGameState;
 
-public class GameState {
-    public void updateGameState(Move move) {
+class GameState implements VisibleGameState {
+    void updateGameState(Move move) {
 
     }
 }
