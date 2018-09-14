@@ -3,6 +3,9 @@ package game.model;
 import game.api.Move;
 import game.api.VisibleGameState;
 
+import java.util.Arrays;
+import java.util.List;
+
 class GameState implements VisibleGameState {
     private Position goalposition = new Position(2, 0);
     private Position playerposition = new Position(0, 0);
@@ -43,7 +46,11 @@ class GameState implements VisibleGameState {
     }
 
     private boolean validatePlayerPosition(int x, int y) {
-        return x >= minx() && x <= maxx() && y >= miny() && y <= maxy();
+        return !isWallPosition(x, y) && x >= minx() && x <= maxx() && y >= miny() && y <= maxy();
+    }
+
+    private boolean isWallPosition(int x, int y) {
+        return getWallpositions().contains(new Position(x, y));
     }
 
     boolean won() {
@@ -68,5 +75,13 @@ class GameState implements VisibleGameState {
     @Override
     public int maxy() {
         return 5;
+    }
+
+    @Override
+    public List<Position> getWallpositions() {
+        return Arrays.asList(new Position(3,2),
+                new Position(1,0),
+                new Position(3, 3),
+                new Position(2, 1));
     }
 }

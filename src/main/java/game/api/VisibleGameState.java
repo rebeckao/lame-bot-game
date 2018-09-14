@@ -1,5 +1,9 @@
 package game.api;
 
+import game.model.Position;
+
+import java.util.List;
+
 public interface VisibleGameState {
     int minx();
 
@@ -8,4 +12,6 @@ public interface VisibleGameState {
     int miny();
 
     int maxy();
+
+    List<Position> getWallpositions();
 }

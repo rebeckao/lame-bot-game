@@ -4,6 +4,8 @@ import game.api.GameRunner;
 import game.api.Move;
 import game.api.Player;
 
+import java.util.List;
+
 public class ConsoleGameRunner implements GameRunner {
     public boolean runGame(Player player) {
         GameState gameState = createInitialGameState();
@@ -26,6 +28,7 @@ public class ConsoleGameRunner implements GameRunner {
     private void displayMap(GameState gamestate) {
         Position playerposition = gamestate.getPlayerposition();
         Position goalposition = gamestate.getGoalposition();
+        List<Position> wallpositions = gamestate.getWallpositions();
         for (int y = gamestate.miny(); y <= gamestate.maxy(); y++) {
             for (int x = gamestate.minx(); x <= gamestate.maxx(); x++) {
                 Position currentPosition = new Position(x, y);
@@ -33,6 +36,8 @@ public class ConsoleGameRunner implements GameRunner {
                     System.out.print("@");
                 } else if (currentPosition.equals(goalposition)) {
                     System.out.print("X");
+                } else if (wallpositions.contains(currentPosition)) {
+                    System.out.print("#");
                 } else {
                     System.out.print(".");
                 }
