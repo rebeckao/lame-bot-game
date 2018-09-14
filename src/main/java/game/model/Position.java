@@ -1,8 +1,8 @@
 package game.model;
 
 public class Position {
-    private int x;
-    private int y;
+    int x;
+    int y;
 
     Position(int x, int y) {
         this.x = x;

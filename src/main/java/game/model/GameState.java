@@ -9,6 +9,20 @@ class GameState implements VisibleGameState {
 
     void updateGameState(Move move) {
 
+        switch (move) {
+            case RIGHT:
+                playerposition.x++;
+                break;
+            case LEFT:
+                playerposition.x--;
+                break;
+            case UP:
+                playerposition.y--;
+                break;
+            case DOWN:
+                playerposition.y++;
+                break;
+        }
     }
 
     boolean won() {
