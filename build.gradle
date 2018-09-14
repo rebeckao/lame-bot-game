@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'co.riiid.gradle' version '0.4.2'
 }
 
 version '1.0-SNAPSHOT'
@@ -25,4 +26,14 @@ task fatJar(type: Jar) {
         it.isDirectory() ? it : zipTree(it)
     } }
     with jar
+}
+
+github {
+    owner = 'rebeckao'
+    repo = 'lame-bot-game'
+    token = '609de9a3d8d55ff583d05e9c501601c5201a44d0'
+    tagName = 'v' + version
+    assets = [
+            'build/libs/' + project.name + '-' + version + '.jar'
+    ]
 }
