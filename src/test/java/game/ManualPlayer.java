@@ -30,6 +30,11 @@ public class ManualPlayer implements Player {
 
     public static void main(String[] args) {
         GameRunner runner = new ConsoleGameRunner();
-        runner.runGame(new ManualPlayer());
+        boolean wonGame = runner.runGame(new ManualPlayer());
+        if (wonGame) {
+            System.out.println("You are not worthless");
+        } else {
+            System.out.println("Game Over!");
+        }
     }
 }
