@@ -20,18 +20,30 @@ class GameState implements VisibleGameState {
 
         switch (move) {
             case RIGHT:
-                playerposition.x++;
+                if (validatePlayerPosition(playerposition.x + 1, playerposition.y)) {
+                    playerposition.x++;
+                }
                 break;
             case LEFT:
-                playerposition.x--;
+                if (validatePlayerPosition(playerposition.x - 1, playerposition.y)) {
+                    playerposition.x--;
+                }
                 break;
             case UP:
-                playerposition.y--;
+                if (validatePlayerPosition(playerposition.x, playerposition.y - 1)) {
+                    playerposition.y--;
+                }
                 break;
             case DOWN:
-                playerposition.y++;
+                if (validatePlayerPosition(playerposition.x, playerposition.y + 1)) {
+                    playerposition.y++;
+                }
                 break;
         }
+    }
+
+    private boolean validatePlayerPosition(int x, int y) {
+        return x >= minx() && x <= maxx() && y >= miny() && y <= maxy();
     }
 
     boolean won() {
