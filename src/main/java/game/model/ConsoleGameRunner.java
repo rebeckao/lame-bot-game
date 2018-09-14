@@ -41,6 +41,7 @@ public class ConsoleGameRunner implements GameRunner {
                 } else {
                     System.out.print(".");
                 }
+                System.out.print(" ");
             }
             System.out.print("\n");
         }

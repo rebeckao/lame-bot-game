@@ -29,7 +29,13 @@ public class ManualPlayer implements Player {
     }
 
     public static void main(String[] args) {
+        System.out.println("UP: 8, DOWN: 2, LEFT: 4, RIGHT: 6");
         GameRunner runner = new ConsoleGameRunner();
-        runner.runGame(new ManualPlayer());
+        boolean wonGame = runner.runGame(new ManualPlayer());
+        if (wonGame) {
+            System.out.println("You are not worthless");
+        } else {
+            System.out.println("Game Over!");
+        }
     }
 }
