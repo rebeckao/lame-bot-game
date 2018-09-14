@@ -2,13 +2,13 @@ package game;
 
 import game.api.GameRunner;
 import game.api.Player;
-import game.model.SilentGameRunner;
+import game.model.ConsoleGameRunner;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
 public class GameRunnerTest {
-    private GameRunner gameRunner = new SilentGameRunner();
+    private GameRunner gameRunner = new ConsoleGameRunner();
     private Player player = new DummyPlayer();
 
     @Test

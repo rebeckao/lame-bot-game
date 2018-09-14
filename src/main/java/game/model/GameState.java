@@ -7,6 +7,15 @@ class GameState implements VisibleGameState {
     private Position goalposition = new Position(2, 0);
     private Position playerposition = new Position(0, 0);
 
+
+    public Position getGoalposition() {
+        return goalposition;
+    }
+
+    public Position getPlayerposition() {
+        return playerposition;
+    }
+
     void updateGameState(Move move) {
 
         switch (move) {
@@ -27,5 +36,25 @@ class GameState implements VisibleGameState {
 
     boolean won() {
         return playerposition.equals(goalposition);
+    }
+
+    @Override
+    public int minx() {
+        return 0;
+    }
+
+    @Override
+    public int maxx() {
+        return 5;
+    }
+
+    @Override
+    public int miny() {
+        return 0;
+    }
+
+    @Override
+    public int maxy() {
+        return 5;
     }
 }
