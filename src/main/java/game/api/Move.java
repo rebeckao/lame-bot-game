@@ -1,5 +1,5 @@
 package game.api;
 
 public enum Move {
-    RIGHT, LEFT, STRAIGHT, BACK;
+    RIGHT, LEFT, UP, DOWN;
 }
