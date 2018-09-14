@@ -10,6 +10,9 @@ public class SilentGameRunner implements GameRunner {
         for (int i = 0; i < 5; i++) {
             Move move = player.choice(gameState);
             gameState.updateGameState(move);
+            if (gameState.won()) {
+                return true;
+            }
         }
         return false;
     }

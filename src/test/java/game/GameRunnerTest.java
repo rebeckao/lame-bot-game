@@ -5,7 +5,7 @@ import game.api.Player;
 import game.model.SilentGameRunner;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class GameRunnerTest {
     private GameRunner gameRunner = new SilentGameRunner();
@@ -14,6 +14,6 @@ public class GameRunnerTest {
     @Test
     public void runGame() {
         boolean goalIsReached = gameRunner.runGame(player);
-        assertTrue(goalIsReached);
+        assertTrue("Game Over!", goalIsReached);
     }
 }

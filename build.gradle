@@ -33,6 +33,7 @@ github {
     repo = 'lame-bot-game'
     token = '609de9a3d8d55ff583d05e9c501601c5201a44d0'
     tagName = 'v' + version
+    body = "New Directions"
     assets = [
             'build/libs/' + project.name + '-' + version + '.jar'
     ]
