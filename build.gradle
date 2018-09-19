@@ -3,7 +3,17 @@ plugins {
     id 'co.riiid.gradle' version '0.4.2'
 }
 
-version '1.0.beta'
+version '1.0.epsilon'
+
+// Don't forget to update the version above when releasing!
+// To build a jar file and release it on Github, in the terminal run:
+// >>gradlew release
+// Note: A valid Github token for this repository must be set in the System environment variable GITHUB_TOKEN
+// To access the released jar in another project, add this to the dependencies in build.jar:
+// compile 'com.github.rebeckao:lame-bot-game:v<the released version>'
+task release(type: GradleBuild) {
+    tasks = ['fatJar', 'githubRelease']
+}
 
 sourceCompatibility = 1.8
 
@@ -15,7 +25,6 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-//create a single Jar with all dependencies
 task fatJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Gradle Jar File',
@@ -31,9 +40,8 @@ task fatJar(type: Jar) {
 github {
     owner = 'rebeckao'
     repo = 'lame-bot-game'
-    token = '609de9a3d8d55ff583d05e9c501601c5201a44d0'
+    token = System.getenv('GITHUB_TOKEN')
     tagName = 'v' + version
-    body = "New Directions"
     assets = [
             'build/libs/' + project.name + '-' + version + '.jar'
     ]
